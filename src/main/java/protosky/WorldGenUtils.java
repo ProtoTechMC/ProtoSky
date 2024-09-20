@@ -19,8 +19,6 @@ import net.minecraft.world.Heightmap;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.*;
-import net.minecraft.world.chunk.light.LightingProvider;
-import protosky.mixins.ProtoChunkAccessor;
 
 import java.util.Map;
 import java.util.Optional;
@@ -82,12 +80,12 @@ public class WorldGenUtils
 
         // Get structure for this dimension
         if (world.getRegistryKey() == World.OVERWORLD) {
-            Optional<StructureTemplate> op = man.getTemplate(new Identifier("protosky:spawn_overworld"));
+            Optional<StructureTemplate> op = man.getTemplate(Identifier.of("protosky", "spawn_overworld"));
             if (op.isPresent()) {
                 s = op.get();
             }
         } else if (world.getRegistryKey() == World.NETHER) {
-            Optional<StructureTemplate> op = man.getTemplate(new Identifier("protosky:spawn_nether"));
+            Optional<StructureTemplate> op = man.getTemplate(Identifier.of("protosky", "spawn_nether"));
             if (op.isPresent()) {
                 s = op.get();
             }

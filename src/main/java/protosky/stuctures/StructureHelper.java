@@ -161,14 +161,14 @@ public class StructureHelper {
                         StructurePieceInvoker pieceInvoker = (StructurePieceInvoker) structurePiece;
 
 
-                        final Identifier TOP_TEMPLATE = new Identifier("igloo/top");
-                        final Identifier MIDDLE_TEMPLATE = new Identifier("igloo/middle");
-                        final Identifier BOTTOM_TEMPLATE = new Identifier("igloo/bottom");
+                        final Identifier TOP_TEMPLATE = Identifier.ofVanilla("igloo/top");
+                        final Identifier MIDDLE_TEMPLATE = Identifier.ofVanilla("igloo/middle");
+                        final Identifier BOTTOM_TEMPLATE = Identifier.ofVanilla("igloo/bottom");
                         final Map<Identifier, BlockPos> OFFSETS_FROM_TOP = ImmutableMap.of(
                                 TOP_TEMPLATE, BlockPos.ORIGIN, MIDDLE_TEMPLATE, new BlockPos(2, -3, 4), BOTTOM_TEMPLATE, new BlockPos(0, -3, -2)
                         );
 
-                        Identifier identifier = new Identifier(simplePieceInvoker.getTemplateIdString());
+                        Identifier identifier = Identifier.of(simplePieceInvoker.getTemplateIdString());
                         StructurePlacementData structurePlacementData = iglooGeneratorPieceInvoker.invokeCreatePlacementData(simplePieceInvoker.getPlacementData().getRotation(), identifier);
 
                         BlockPos blockPos = OFFSETS_FROM_TOP.get(identifier);
